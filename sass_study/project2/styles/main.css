@@ -1,0 +1,88 @@
+main .slide_wrap {
+  max-width: 1360px;
+  min-width: 320px;
+  height: 750px;
+  margin: 50px auto 0;
+  padding: 60px;
+  background-color: #ffffd4;
+  position: relative;
+}
+main .slide_wrap .slide_container {
+  height: 100%;
+}
+main .slide_wrap .slide_container .slide {
+  height: 100%;
+}
+main .slide_wrap .slide_container .slide .title_contents h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  line-height: 1.3;
+}
+main .slide_wrap .slide_container .slide .title_contents p {
+  font-size: 1.5rem;
+  font-weight: 500;
+  margin: 20px 0 300px;
+}
+main .slide_wrap .slide_container .slide .bnr_link a {
+  display: inline-block;
+  width: 250px;
+  line-height: 60px;
+  text-align: center;
+  border-radius: 40px;
+  font-weight: 600;
+  font-size: 1.1rem;
+  border: 1px solid #000;
+}
+main .slide_wrap .slide_container .slide .bnr_link .education_btn {
+  background-color: #000;
+  color: #fff;
+}
+main .slide_wrap .slide_container .slide1 {
+  background-image: url(../images/home_chun_yellow_250813.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-size: 800px auto;
+  background-position: 120% center;
+}
+main .slide_wrap .slide_page_btn {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: max-content;
+  top: auto;
+  bottom: 50px;
+  left: 60px;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 20px;
+}
+main .slide_wrap .slide_page_btn .pagenation {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 10px;
+}
+main .slide_wrap .slide_page_btn .pagenation .current {
+  font-weight: 600;
+}
+main .slide_wrap .slide_page_btn .pagenation .bar {
+  width: 100px;
+  height: 2px;
+  background-color: #000;
+}
+main .slide_wrap .slide_page_btn .pagenation .total {
+  font-weight: 500;
+}
+main .slide_wrap .slide_page_btn .btn_g button {
+  background: none;
+}
+main .slide_wrap .slide_page_btn .btn_g #prev {
+  margin-right: 20px;
+}
+
+/*# sourceMappingURL=main.css.map */
