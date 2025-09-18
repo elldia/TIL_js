@@ -56,7 +56,7 @@
                         .original {color:$color-gray-light-lv1;}
                         .price_info {
                             position:relative;
-                            .info_icon {transform:translateY(4px); width:14px; fill:$color-white;}
+                            .info_icon {transform:translateY(4px); width:14px; fill:$color-gray-light-lv2;}
                             .info {
                                 width:300px; 
                                 @include pst-ab; left:50%; top:25px;

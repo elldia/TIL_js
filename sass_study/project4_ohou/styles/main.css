@@ -164,7 +164,7 @@
 #wrap main .container > .contents .price_wrap .sale_original_price .price_info .info_icon {
   transform: translateY(4px);
   width: 14px;
-  fill: #fff;
+  fill: #bdbdbd;
 }
 #wrap main .container > .contents .price_wrap .sale_original_price .price_info .info {
   width: 300px;
