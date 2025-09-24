@@ -6,9 +6,14 @@ let num = 0;
 
 //상
 moveBtn[0].addEventListener('click',()=>{
+    num -= 10;
+    console.log(num)
+    character.style.transform = `translateY(${num}px)`;
+})
+moveBtn[1].addEventListener('click',()=>{
     num += 10;
     console.log(num)
-    character.style.transform = `rotate(90deg) translateX(-${num}px)`;
+    character.style.transform = `translateY(${num}px)`;
 })
 //하
 //좌
