@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>스크롤 | JS</title>
+    <link rel="stylesheet" href="./styles/reset.css">
+    <style>
+        body, html {
+            height:300vh;
+            background:linear-gradient(beige, coral, pink, orange);
+        }
+        #top {position:fixed; right:20px; bottom:20px;}
+        header {background:#fff; height:100px;}
+        main .title {position:sticky; top:0; background:skyblue; height:50px;}
+        /* sticky 실행조건 : sticky적용 대상의 부모가 뷰포트보다 커야함 */
+    </style>
+</head>
+<body>
+    <button type="button" id="top">위로</button>
+    <header>header</header>
+    <main>
+        <div class="title">
+            <a href="#">책 소개</a>
+            <a href="#">리뷰</a>
+            <a href="#">배송정보</a>
+        </div>
+        <div class="contents" style="height:80vh">책 소개 내용</div>
+        <div class="contents" style="height:80vh">리뷰 내용</div>
+        <div class="contents" style="height:80vh">배송정보 내용</div>
+    </main>
+    <script>
+
+        const topBtn = document.querySelector('#top')
+        const titleA = document.querySelectorAll('.title a')
+        const contents = document.querySelectorAll('.contents')
+
+        //객체.forEach(function(obj, idx, arr){ 반복실행 })
+        //객체[index] //개별방법
+        titleA[1].addEventListener('click',(e)=>{
+            e.preventDefault(); //href 막기
+            console.log(contents[1].offsetTop)
+            // window.scrollTo(0, contents[1].offsetTop)
+            window.scrollTo({left:0, top:contents[1].offsetTop-100, behavior:'smooth'})
+        })
+
+        topBtn.addEventListener('click',()=>{
+            //window.scrollTo(x, y, option)
+            //window.scrollTo(100, 200)
+            //window.scrollTo({left:0, top:100})
+            window.scrollTo({left:0, top:100, behavior:'smooth'})
+        })
+
+    </script>
+</body>
+</html>
