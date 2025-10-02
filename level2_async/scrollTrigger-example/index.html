@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>조세마루 | 가로스크롤트리거활용</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/ScrollTrigger.min.js"></script>
+    <style>
+        * {margin:0; padding:0; line-height:1; font-family:'MaruBuri', serif;}
+        body {overflow-x:hidden;}
+        header {
+            height:50px; position:fixed; left:0; top:0; width:100%; z-index:999;
+            display:flex; align-items: center; justify-content: center;
+            border-bottom:1px solid rgba(255,255,255,0.7);
+        }
+        header h1 {}
+        header h1 img {filter:invert(1); width:120px;}
+        main .visual {background:linear-gradient(#ddd, #fff)}
+        main .visual .bg {
+            background:url(./images/imgi_3_main-house.png) center right / cover;
+            height:100vh; position:relative;
+            animation:brightness 2s both;
+        }
+        main .visual .bg .txt {
+            position:absolute; left:40px; bottom:40px;
+        }
+        main .visual .bg .txt h1 img {
+            width:300px;
+            animation:opacity 4s both 2s;
+        }
+        main .visual .bg .txt p {font-size:1.6rem;  margin:20px 0 0;}
+        main .visual .bg .txt p span {
+            display:inline-block; padding:5px 10px; line-height:1.5;
+            background:linear-gradient(-40deg, #6e0707, #b13939); color:#fff;
+        }
+        main .wrap::before {
+            content:''; display:block; width:100%; height:100px;
+            background:linear-gradient(#6e0707, transparent);
+            position:absolute; left:0; top:0; z-index:950;
+        }
+        main .wrap {position:relative;}
+        main .wrap .box {
+            position:absolute; top:200px; left:0; z-index:900;
+            color:#fff; padding-left:50px;
+        }
+        main .wrap .box h1 {font-size:4rem;}
+        main .wrap .box p {margin:20px 0; font-size:1.2rem; line-height:1.5;}
+        main .wrap .container {width:max-content; height:100vh; overflow:hidden;}
+        main .wrap .container img {
+            width:250vw; transform:translateY(-30%);
+            filter:brightness(200%);
+        }
+        /* animation */
+        @keyframes brightness {
+            0% {filter:brightness(100%) contrast(100%)}
+            100% {filter:brightness(140%) contrast(80%)}
+        }
+        @keyframes opacity {
+            0% {opacity:0}
+            100% {opacity:1}
+        }
+    </style>
+</head>
+<body>
+    <!-- 음식, 자연, 동물, 패션 등 -->
+    <header>
+        <h1><img src="./images/imgi_2_6854e3d5f206a4.58444709.png" alt=""></h1>
+    </header>
+    <main>
+        <div class="visual">
+            <div class="bg">
+                <div class="txt">
+                    <h1><img src="./images/imgi_2_6854e3d5f206a4.58444709.png" alt=""></h1>
+                    <p><span>조세의 정점, 조세마루</span> <br>
+                    <span>조세불복의 해법, 국내 50인의 전문가로부터</span></p>
+                </div>
+            </div>
+        </div>
+        <div class="wrap">
+            <div class="box">
+                <h1>조세마루</h1>
+                <p>지붕마루처럼 가장 높은 시각에서 세법을 바라보고<br>
+                고품격 대청마루의 정성으로 모든 납세자의 권익을 섬깁니다.</p>
+            </div>
+            <div class="container">
+                <img src="./images/imgi_13_main-contact-bg.jpg" alt="">
+            </div>
+        </div>
+    </main>
+    <script>
+        gsap.registerPlugin(ScrollTrigger)
+
+const container = document.querySelector('.container')
+const scrollW = container.offsetWidth - window.innerWidth;
+console.log(container.offsetWidth, scrollW)
+
+//scrollTrigger
+gsap.utils.toArray('.wrap').forEach((obj) => {
+    console.log(obj)
+    //timeline 애니메이션 관리 + fromTo 연결동작
+    const banyan = gsap.timeline({
+        scrollTrigger:{
+            trigger:obj,
+            start:'center center',
+            end:()=> "+=" + scrollW,//가로스크롤 종료 지점
+            scrub:true,//마우스휠 동작에 맞추기
+            pin:true,//고정
+            anticipatePin:1,//gsap권장옵션(화면튀는현상막기)
+        },defaults:{ease:'none'},//속도 균일
+    })
+    banyan.fromTo(obj.querySelector('.container'), {
+        x:0,
+    }, {
+        x:-scrollW
+    })
+})
+    </script>
+</body>
+</html>
